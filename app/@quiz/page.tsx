@@ -83,7 +83,7 @@ export default function Quiz() {
       )}
 
       {!questions?.length && !loading && (
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center bg-yellow-300">
           <Player
             src="https://assets6.lottiefiles.com/packages/lf20_touohxv0.json"
             className="player"
@@ -101,7 +101,7 @@ export default function Quiz() {
             onClick={() => {
               window.location.reload();
             }}
-            className="bg-white hover:bg-gray-100 my-10 text-gray-800 font-semibold py-2 px-10 border border-gray-400 rounded shadow"
+            className="bg-white hover:bg-gray-400 my-10 text-gray-800 font-semibold py-2 px-10 border border-gray-400 rounded shadow"
           >
             Start Over
           </button>
@@ -110,20 +110,20 @@ export default function Quiz() {
 
       {!questions && <p>loading...</p>}
       {!!questions && !!questions?.length && (
-        <section className="shadow-2xl my-10 p-10 w-[90%] rounded-lg flex flex-col justify-center items-center shadow-blue-200  ">
-          <h4 className="mb-4 text-center  text-xl font-extrabold leading-none tracking-tight md:text-2xl lg:text-4xl  text-blue-600 dark:text-blue-500">
+        <section className="shadow-2xl my-10 p-10 w-[90%] rounded-lg flex flex-col justify-center items-center shadow-blue-100 bg-blue-300">
+          <h4 className="mb-4 text-center  text-xl font-extrabold leading-none tracking-tight md:text-2xl lg:text-4xl  text-white dark:text-blue-500">
             {questions[0].question}
           </h4>
-          <div className="flex justify-evenly items-center w-full my-20 flex-wrap">
+          <div className="flex justify-evenly items-center w-full my-20 flex-wrap bg-cyan-900 ">
             {questions[0].answers.map((e:string) => {
               return (
                 <button
                   key={e}
                   onClick={() => answerCheck(e)}
                   className={cn(
-                    "w-[40%] my-4 bg-white hover:bg-blue-600 hover:text-gray-100  text-gray-800 font-semibold py-4 px-4 shadow-blue-200   rounded-lg shadow-2xl",
+                    "w-[40%] my-4 bg-white hover:bg-blue-600 hover:text-gray-100  text-gray-800 font-semibold py-4 px-4 shadow-blue-200   rounded-lg shadow-2xl bg-yellow-300 ",
                     {
-                      "bg-blue-600": !!answer && answer === e,
+                      "bg-green-600": !!answer && answer === e,
                       "bg-red-600": !!answer && answer !== e,
                       "hover:bg-blue-600": !!answer && answer === e,
                       "hover:bg-red-600": !!answer && answer !== e,
@@ -139,7 +139,7 @@ export default function Quiz() {
 
           <button
             onClick={handleNext}
-            className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-10 border border-gray-400 rounded shadow"
+            className="bg-purple-500 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-10 border border-gray-900 rounded shadow"
           >
             Next
           </button>
